@@ -207,5 +207,10 @@ body {
 
 footer {
     text-align: center;
-    padding: 10px;
+}
+
+footer p {
+    color: rgb(101, 99, 112);
+    margin: 0;
+    padding: 1px;
 }
