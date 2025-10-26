@@ -109,6 +109,8 @@ body {
     align-items: flex-start;
     justify-content: center;
     gap: 20px;
+    flex-wrap: wrap;
+
 }
 
 .part {
@@ -157,7 +159,7 @@ body {
     position: absolute;
     background: rgba(255, 255, 255, 0.9);
     border-radius: 50%;
-    animation: float 3s ease-in-out infinite;
+    animation: animBubble 3s ease-in-out infinite;
 }
 
 .bubble1 {
@@ -184,7 +186,7 @@ body {
     animation-delay: 1s;
 }
 
-@keyframes float {
+@keyframes animBubble {
 
     0%,
     100% {
