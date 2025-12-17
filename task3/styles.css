@@ -1,0 +1,217 @@
+/* Основные стили flex-контейнера */
+.flex-container {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #333;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #f5f5f5;
+    margin: 20px auto;
+}
+
+/* Общие стили для всех изображений */
+.flex-container img {
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+    transition: all 0.3s ease;
+}
+
+/* ========== СОСТОЯНИЕ 1: ВИТРИНА ========== */
+.shop-display {
+    opacity: 1;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ========== СОСТОЯНИЕ 2: ПРИ НАВЕДЕНИИ - МАЛЬЧИК БЕЖИТ ========== */
+/* Витрина остается при наведении */
+.flex-container:hover .shop-display {
+    opacity: 1;
+}
+
+/* Стили для бегущего мальчика */
+.boy-running {
+    opacity: 0;
+    width: 80px;
+    height: 120px;
+    bottom: 15px;
+    left: -70px;
+    z-index: 2;
+    transform: translateX(0);
+}
+
+/* При наведении показываем бегущего мальчика */
+.flex-container:hover .boy-running {
+    opacity: 1;
+    animation: runAcross 2s ease-out forwards;
+}
+
+/* Анимация бега мальчика внутри витрины */
+@keyframes runAcross {
+    0% {
+        left: -50px;
+        transform: translateX(0);
+        opacity: 1;
+    }
+    60% {
+        left: 65%;
+        transform: translateX(-50%);
+    }
+	70% {
+        left: 70%;
+        transform: translateX(-50%);
+    }
+    80% {
+        left: 75%;
+        transform: translateX(-50%);
+    }
+    90% {
+        left: 80%;
+        transform: translateX(-50%);
+        opacity: 1;
+    }
+    100% {
+        left: 80%;
+        transform: translateX(-50%);
+        opacity: 0;
+    }
+}
+
+/* ========== НАДПИСЬ "ИГРУШКИ ОПТОМ" ========== */
+.toys-label {
+    position: absolute;
+    opacity: 0;
+    color: #808080; /* Серый цвет */
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 5;
+    bottom: 5px; /* В самом низу картинки */
+    left: 5px; /* Слева */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Надпись появляется когда мальчик забегает */
+.flex-container:hover .toys-label {
+    opacity: 1;
+    transition: opacity 0.5s ease 0.5s; /* Появляется через 0.5 сек после наведения */
+}
+
+/* ========== НАДПИСЬ "САМЫЕ ВЕСЕЛЫЕ ИГРУШКИ!" ========== */
+.fun-toys-label {
+    position: absolute;
+    opacity: 0;
+    color: #00FF00; /* Ярко-зеленый цвет */
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    z-index: 6;
+    top: 10px; /* Вверху */
+    left: 0;
+    width: 100%;
+    transform: rotate(-50deg) translateX(-10px); /* Наклон по диагонали и сдвиг влево */
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* При нажатии первая надпись исчезает, вторая появляется */
+.flex-container:hover:active .toys-label {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.flex-container:hover:active .fun-toys-label {
+    opacity: 1;
+    transform: rotate(-10deg) translateX(0); /* Плавное появление с движением */
+    transition: opacity 0.5s ease 0.2s, transform 0.5s ease 0.2s; /* Задержка 0.2с */
+}
+
+/* ========== СОСТОЯНИЕ 3: ПОСЛЕ БЕГА - МАЛЬЧИК ПОВЕРНУЛСЯ И ВЕРТУШКА ========== */
+/* Стили для повернутого мальчика */
+.boy-turned {
+    opacity: 0;
+    width: 80px;
+    height: 120px;
+    bottom: 15px;
+    right: 10px;
+    z-index: 3;
+}
+
+/* После завершения анимации бега показываем повернутого мальчика */
+.flex-container:hover .boy-turned {
+    opacity: 1;
+    transition: opacity 0.5s ease 2s;
+}
+
+/* ВЕРТУШКА появляется после поворота мальчика (без нажатия!) */
+.flex-container:hover .pinwheel {
+    opacity: 1;
+    top: 70px;
+    right: 55px;
+    width: 50px;
+    height: 50px;
+    z-index: 4;
+    transform: rotate(15deg);
+    transition: opacity 0.5s ease 2.2s;
+}
+
+/* Палка вертушки появляется после поворота мальчика */
+.flex-container:hover .pinwheel-stick {
+    opacity: 1;
+    top: 95px;
+    right: 78px;
+    width: 3px;
+    height: 40px;
+    background-color: #8B4513;
+    z-index: 3;
+    transform: rotate(-10deg);
+    transform-origin: top center;
+    transition: opacity 0.5s ease 2.2s;
+}
+
+/* ========== СОСТОЯНИЕ 4: ПРИ НАЖАТИИ - ВЕРТУШКА НАЧИНАЕТ КРУТИТЬСЯ ========== */
+/* При нажатии вертушка начинает вращаться */
+.flex-container:hover:active .pinwheel {
+    animation: spinTiltedRight 0.8s linear infinite;
+    transform: rotate(15deg);
+}
+
+/* Анимация вращения вертушки НАКЛОНЕННОЙ ВПРАВО */
+@keyframes spinTiltedRight {
+    from { 
+        transform: rotate(15deg) rotate(0deg); 
+    }
+    to { 
+        transform: rotate(15deg) rotate(360deg); 
+    }
+}
+
+/* ========== СОСТОЯНИЕ 5: ЭФФЕКТ СЕПИИ ПРИ НАЖАТИИ ========== */
+.flex-container:hover:active {
+    filter: sepia(100%);
+    transition: filter 0.3s ease;
+}
+
+/* Изначально скрываем вертушку и палку */
+.pinwheel, .pinwheel-stick {
+    opacity: 0;
+    position: absolute;
+}
+
+/* Стили для палки вертушки */
+.pinwheel-stick {
+    background-color: #8B4513;
+}

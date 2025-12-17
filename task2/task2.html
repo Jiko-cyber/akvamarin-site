@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .aquarium {
+            width: 200px;
+            height: 200px;
+            background: white;
+            position: relative;
+            border: 1px solid #ccc;
+            overflow: hidden;
+        }
+
+        .sand {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 30px;
+            background: repeating-linear-gradient(90deg,
+                    #fefe01,
+                    #fefe01 10px,
+                    #e0b751 10px,
+                    #e0b751 20px);
+            z-index: 2;
+        }
+
+        .fish {
+            position: absolute;
+            width: 110px;
+            height: 45px;
+            z-index: 3;
+        }
+
+        .fish-body {
+            width: 80px;
+            height: 45px;
+            background: linear-gradient(to right, #FFA500, #f3f2d5);
+            position: absolute;
+            left: 15px;
+            z-index: 2;
+            clip-path: path('M 0,22.5 Q 15,0 40,0 Q 70,1 80,22.5 Q 70,43 40,45 Q 15,45 0,22.5 Z');
+        }
+
+
+        .fish-tail {
+            width: 35px;
+            height: 50px;
+            position: absolute;
+            top: 3px;
+            left: -10px;
+            z-index: 1;
+            background: #FFA500;
+            clip-path: path('M 0,0 L 46,20.5 L 0,37 Q 30,19 0,0');
+        }
+
+        .fish-eye {
+            width: 9px;
+            height: 9px;
+            background: black;
+            position: absolute;
+            top: 17px;
+            left: 77px;
+            z-index: 3;
+            clip-path: circle(40%);
+        }
+
+        /* Красная дуга, разделяющая голову и тело */
+        .fish-gills {
+            position: absolute;
+            top: 3px;
+            left: 55px;
+            z-index: 2;
+            width: 14px;
+            height: 29px;
+            border: 4px solid #bb2934;
+            border-right: none;
+            border-top: 5px solid #bb2934;
+            border-bottom: 5px solid #bb2934;
+            border-radius: 200px 0% 0% 200px;
+        }
+
+        /* чешуя */
+        .fish-gills_1 {
+            position: absolute;
+            top: 2px;
+            left: 36px;
+            z-index: 3;
+            width: 7px;
+            height: 10px;
+            border: 3px solid #bb2934;
+            border-right: none;
+            border-top: 3px solid #bb2934;
+            border-bottom: 3px solid #bb2934;
+            border-radius: 60px 0% 0% 60px;
+        }
+
+        .fish-gills_2 {
+            position: absolute;
+            top: 14.5px;
+            left: 33px;
+            z-index: 3;
+            width: 9px;
+            height: 12px;
+            border: 3px solid #bb2934;
+            border-right: none;
+            border-top: 3px solid #bb2934;
+            border-bottom: 3px solid #bb2934;
+            border-radius: 60px 0% 0% 60px;
+        }
+
+        .fish-gills_3 {
+            position: absolute;
+            top: 29px;
+            left: 36px;
+            z-index: 3;
+            width: 7px;
+            height: 10px;
+            border: 3px solid #bb2934;
+            border-right: none;
+            border-top: 3px solid #bb2934;
+            border-bottom: 3px solid #bb2934;
+            border-radius: 60px 0% 0% 60px;
+        }
+
+        /* Первая рыбка (смотрит вправо и слегка вверх) */
+        .fish1 {
+            top: 40px;
+            left: 20px;
+            transform: rotate(-10deg);
+        }
+
+        /* Вторая рыбка (развернута влево) */
+        .fish2 {
+            top: 120px;
+            left: 70px;
+            transform: scale(0.7) rotateY(180deg);
+        }
+
+        .seaweed {
+            position: absolute;
+            bottom: 1px;
+            /* Расположены ниже, заходят за песок */
+            z-index: 1;
+            /* Под песком */
+        }
+
+        /* Травинки выше и заходят за песок */
+        .seaweed1 {
+            top: 5px;
+            left: 20px;
+            width: 100px;
+            height: 200px;
+            /* Выше (было 120px) */
+            border: 10px solid #06cc06;
+            border-right: none;
+            border-top: none;
+            border-bottom: none;
+            border-bottom: none;
+            border-radius: 180px 0px 0px 120px;
+            background: none;
+        }
+
+        .seaweed2 {
+            top: 15px;
+            left: 88px;
+            width: 100px;
+            height: 200px;
+            /* Выше (было 120px) */
+            border: 10px solid #06cc06;
+            border-right: none;
+            border-top: none;
+            border-bottom: none;
+            border-radius: 200px 0px 0px 140px;
+            background: none;
+        }
+
+        /* Правая травинка повернута влево и тоже выше */
+        .seaweed3 {
+            top: 15px;
+            left: 85px;
+            width: 100px;
+            height: 200px;
+            /* Выше (было 120px) */
+            border: 10px solid #06cc06;
+            border-left: none;
+            border-top: none;
+            border-bottom: none;
+            border-radius: 0px 200px 140px 0px;
+            background: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="aquarium">
+        <div class="sand"></div>
+        <!-- Травинки (под рыбками) -->
+        <div class="seaweed seaweed1"></div>
+        <div class="seaweed seaweed2"></div>
+        <div class="seaweed seaweed3"></div>
+        <div class="seaweed seaweed4"></div>
+        <!-- Рыбки -->
+        <div class="fish fish1">
+            <div class="fish-tail"></div>
+            <div class="fish-body"></div>
+            <div class="fish-gills"></div>
+            <div class="fish-gills_1"></div>
+            <div class="fish-gills_2"></div>
+            <div class="fish-gills_3"></div>
+            <div class="fish-eye"></div>
+        </div>
+        <div class="fish fish2">
+            <div class="fish-tail"></div>
+            <div class="fish-body"></div>
+            <div class="fish-gills"></div>
+            <div class="fish-gills_1"></div>
+            <div class="fish-gills_2"></div>
+            <div class="fish-gills_3"></div>
+            <div class="fish-eye"></div>
+        </div>
+    </div>
+</body>
+
+</html>
