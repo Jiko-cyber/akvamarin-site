@@ -1,32 +1,69 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Интерактивная витрина</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../static/styles/style.css">
+    <link rel="stylesheet" href="styles3.css">
 </head>
+
 <body>
-    <div class="flex-container">
-        <img src="img/toy1.jpg" alt="Витрина магазина" class="shop-display">
-        
-        <!-- Мальчик бежит -->
-        <img src="img/toy2.png" alt="Мальчик бежит" class="boy boy-running">
-        
-        <!-- Мальчик повернулся -->
-        <img src="img/toy3.png" alt="Мальчик повернулся" class="boy boy-turned">
-        
-        <!-- Вертушка -->
-        <img src="img/toy5.png" alt="Вертушка" class="pinwheel">
-        
-        <!-- Палка вертушки -->
-        <img src="img/toy4.png" alt="Палка вертушки" class="pinwheel-stick">
-        
-        <!-- Надпись "Игрушки оптом" (исчезает при нажатии) -->
-        <div class="toys-label">Игрушки оптом</div>
-        
-        <!-- Надпись "Самые веселые игрушки!" (появляется при нажатии) -->
-        <div class="fun-toys-label">Самые веселые игрушки!</div>
+
+    <div id="header">
+        <div class="logo-container">
+            <div class="logo">
+                <div class="letter-a">A</div>
+                <div class="bubble bubble1"></div>
+                <div class="bubble bubble2"></div>
+                <div class="bubble bubble3"></div>
+            </div>
+            <p class="header-text">Тропические рыбки - наш конёк!</p>
+        </div>
     </div>
+
+    <div id="site">
+        <div id="leftSide">
+            <div class="leftSide-content">
+                <p><a href="../index.html">Главная</a></p>
+                <p><a href="../task2/task2.html">Задание 2</a></p>
+                <p>Задание 4</p>
+                <p><a href="../contact.html">Контактная информация </a></p>
+            </div>
+        </div>
+
+
+        <div id="rightSide">
+            <div class="flex-container">
+                <img src="img/toy1.jpg" alt="Витрина магазина" class="shop-display">
+
+                <!-- Мальчик бежит -->
+                <img src="img/toy2.png" alt="Мальчик бежит" class="boy boy-running">
+
+                <!-- Мальчик повернулся -->
+                <img src="img/toy3.png" alt="Мальчик повернулся" class="boy boy-turned">
+
+                <!-- Вертушка -->
+                <img src="img/toy5.png" alt="Вертушка" class="pinwheel">
+
+                <!-- Палка вертушки -->
+                <img src="img/toy4.png" alt="Палка вертушки" class="pinwheel-stick">
+
+                <!-- Надпись "Игрушки оптом" (исчезает при нажатии) -->
+                <div class="toys-label">Игрушки оптом</div>
+
+                <!-- Надпись "Самые веселые игрушки!" (появляется при нажатии) -->
+                <div class="fun-toys-label">Самые веселые игрушки!</div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Аквариумная ул., 15</p>
+        <p>г.Санкт-Петербург, 182902</p>
+        <p>©Аквамарин, 2025</p>
+    </footer>
 </body>
+
 </html>
