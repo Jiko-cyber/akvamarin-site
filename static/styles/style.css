@@ -1,7 +1,7 @@
 body {
     background-color: #9FC0E3;
     margin: 0;
-    height: 100vh;
+    height: 100%;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -33,12 +33,10 @@ body {
 
 .leftSide-content {
     text-align: left;
-    font-style: normal;
     font-size: 20px;
 }
 
 #rightSide {
-    flex: 1;
     border: 1px solid #ccc;
     margin-left: 0;
     padding: 20px;
@@ -90,7 +88,7 @@ body {
 
 .fish {
     border-radius: 10px;
-    border: 3px solid #9FC0E3;
+    border: 3px solid #08213b;
     width: 350px;
     height: 250px;
     text-align: center;
@@ -188,9 +186,7 @@ body {
 }
 
 @keyframes animBubble {
-
-    0%,
-    100% {
+    0% {
         transform: translateY(0) translateX(0);
         opacity: 0.9;
     }
@@ -203,6 +199,11 @@ body {
     66% {
         transform: translateY(-4px) translateX(-2px);
         opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(0) translateX(0);
+        opacity: 0.9;
     }
 }
 
