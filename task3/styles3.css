@@ -37,6 +37,10 @@
 }
 
 @keyframes runAcross {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
 
     95% {
         transform: translateX(185px);
@@ -49,47 +53,6 @@
     }
 }
 
-.toys-label {
-    position: absolute;
-    opacity: 0;
-    color: #cac4c4;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 11px;
-    font-weight: bold;
-    z-index: 5;
-    bottom: 5px;
-    left: 5px;
-}
-
-.flex-container:hover .toys-label {
-    opacity: 1;
-    transition: opacity 0.5s;
-}
-
-.fun-toys-label {
-    position: absolute;
-    opacity: 0;
-    color: #00FF00;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 11px;
-    font-weight: bold;
-    text-align: center;
-    z-index: 5;
-    top: 30px;
-    left: 0;
-}
-
-.flex-container:hover:active .toys-label {
-    opacity: 0;
-    transition: opacity 0.2s;
-}
-
-.flex-container:hover:active .fun-toys-label {
-    opacity: 1;
-    transform: rotate(-15deg);
-    transition: opacity 0.5s;
-
-}
 
 .boy-turned {
     opacity: 0;
@@ -150,4 +113,45 @@
     opacity: 0;
     position: absolute;
     transition: opacity 0.2s;
+}
+
+.toys-label {
+    position: absolute;
+    opacity: 0;
+    color: #cac4c4;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 11px;
+    font-weight: bold;
+    z-index: 5;
+    bottom: 5px;
+    left: 5px;
+}
+
+.flex-container:hover .toys-label {
+    opacity: 1;
+    transition: opacity 0.5s;
+}
+
+.fun-toys-label {
+    position: absolute;
+    opacity: 0;
+    color: #00FF00;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+    z-index: 5;
+    top: 30px;
+}
+
+.flex-container:hover:active .toys-label {
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.flex-container:hover:active .fun-toys-label {
+    opacity: 1;
+    transform: rotate(-15deg);
+    transition: opacity 0.2s;
+
 }
