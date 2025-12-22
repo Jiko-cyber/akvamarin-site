@@ -37,6 +37,8 @@ body {
 }
 
 #rightSide {
+    flex-grow: 1;
+    flex-shrink: 1;
     border: 1px solid #ccc;
     margin-left: 0;
     padding: 20px;
