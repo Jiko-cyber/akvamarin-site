@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Интерактивная витрина</title>
+    <title>Латинские фразы с переводом</title>
     <link rel="stylesheet" href="../static/styles/style.css">
-    <link rel="stylesheet" href="styles3.css">
+    <link rel="stylesheet" href="styles4.css">
 </head>
 
 <body>
@@ -29,22 +29,32 @@
             <div class="leftSide-content">
                 <p><a href="../index.html">Главная</a></p>
                 <p><a href="../task2/task2.html">Задание 2</a></p>
-                <p><a href="../task4/task4.html">Задание 4</a></p>
+                <p><a href="../task3/task3.html">Задание 3</a></p>
                 <p><a href="../contact.html">Контактная информация </a></p>
             </div>
         </div>
 
 
         <div id="rightSide">
-            <div class="flex-container">
-                <img src="img/toy1.jpg" alt="Витрина магазина" class="shop-display">
-                <img src="img/toy2.png" alt="Мальчик бежит" class="boy boy-running">
-                <img src="img/toy3.png" alt="Мальчик повернулся" class="boy boy-turned">
-                <img src="img/toy5.png" alt="Вертушка" class="pinwheel">
-                <img src="img/toy4.png" alt="Палка вертушки" class="pinwheel-stick">
-                <div class="toys-label">ИГРУШКИ ОПТОМ</div>
-                <div class="fun-toys-label">САМЫЕ ВЕСЕЛЫЕ ИГРУШКИ!</div>
+            <h1>Латинские фразы с переводом</h1>
+
+            <div class="controls">
+                <button id="createBtn">Создать</button>
+                <button id="recolorBtn">Перекрасить</button>
             </div>
+
+            <table id="phrasesTable">
+                <thead>
+                    <tr>
+                        <th>Латинский язык</th>
+                        <th>Русский язык</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+            <script src="script.js"></script>
         </div>
     </div>
 
@@ -54,5 +64,6 @@
         <p>©Аквамарин, 2025</p>
     </footer>
 </body>
+
 
 </html>
