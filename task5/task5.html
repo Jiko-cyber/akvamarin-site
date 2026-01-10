@@ -4,10 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Латинские фразы с переводом</title>
+    <title>Перетаскиваемые фигуры с вращением</title>
+    <link rel="stylesheet" href="style5.css">
     <link rel="stylesheet" href="../static/styles/style.css">
-    <link rel="stylesheet" href="styles4.css">
-    <script src="script.js"></script>
 </head>
 
 <body>
@@ -30,7 +29,7 @@
             <div class="leftSide-content">
                 <p><a href="../index.html">Главная</a></p>
                 <p><a href="../task2/task2.html">Задание 2</a></p>
-                <p><a href="../task3/task3.html">Задание 3</a></p>
+                <p><a href="../task4/task4.html">Задание 4</a></p>
                 <p><a href="../task5/task5.html">Задание 5</a></p>
                 <p><a href="../contact.html">Контактная информация </a></p>
             </div>
@@ -38,25 +37,15 @@
 
 
         <div id="rightSide">
-            <h1>Латинские фразы с переводом</h1>
+            <h1>Перетаскиваемые фигуры с вращением</h1>
 
-            <div class="controls">
-                <button id="createBtn">Создать</button>
-                <button id="recolorBtn">Перекрасить</button>
+            <div class="work-area" id="workArea">
+
             </div>
 
-            <table id="phrasesTable">
-                <thead>
-                    <tr>
-                        <th>Латинский язык</th>
-                        <th>Русский язык</th>
-                    </tr>
-                </thead>
-                <tbody>
+            <div class="success-message" id="successMessage">Все верно!</div>
 
-                </tbody>
-            </table>
-
+            <script src="script5.js"></script>
         </div>
     </div>
 
@@ -66,6 +55,5 @@
         <p>©Аквамарин, 2025</p>
     </footer>
 </body>
-
 
 </html>
