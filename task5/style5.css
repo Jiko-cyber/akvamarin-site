@@ -37,17 +37,14 @@ h1 {
     z-index: 20;
 }
 
-/* Окно для домика - нежно голубой кубик */
 .house-window {
     width: 40px;
     height: 40px;
     background-color: #a8cbe6;
     border: 2px solid #8dc7d9;
     z-index: 35;
-    /* Перед домиком */
 }
 
-/* Ёлка - 3 треугольника и ствол */
 .tree-bottom {
     width: 0;
     height: 0;
