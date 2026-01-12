@@ -16,10 +16,10 @@ document.addEventListener('DOMContentLoaded', function () {
     let offsetX = 0, offsetY = 0;
 
     shapesConfig.forEach(config => {
-        createShapeInWorkArea(config);
+        createShape(config);
     });
 
-    function createShapeInWorkArea(config) {
+    function createShape(config) {
         const shape = document.createElement('div');
         shape.className = `shape ${config.type}`;
         shape.id = config.id;
@@ -61,10 +61,10 @@ document.addEventListener('DOMContentLoaded', function () {
         shape.style.transform = `rotate(${currentRotation}deg)`;
         shape.dataset.rotation = currentRotation;
 
-        checkIfShapesAreAssembled();
+        checkShapesAssem();
     }
 
-    function areShapesClose(element1, element2, maxDistance = 50) {
+    function shapesClose(element1, element2, maxDistance = 50) {
         const rect1 = element1.getBoundingClientRect();
         const rect2 = element2.getBoundingClientRect();
 
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return (dx * dx + dy * dy) <= (maxDistance * maxDistance);
     }
 
-    function checkIfShapesAreAssembled() {
+    function checkShapesAssem() {
         const houseSquare = document.getElementById('house-square');
         const houseRoof = document.getElementById('house-roof');
         const houseWindow = document.getElementById('house-window');
@@ -90,25 +90,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (!houseSquare || !houseRoof || !houseWindow || !treeBottom || !treeMiddle || !treeTop || !treeTrunk) return;
 
-        const roofCloseToHouse = areShapesClose(houseSquare, houseRoof, 95);
-        const windowCloseToHouse = areShapesClose(houseSquare, houseWindow, 20);
+        const roofClose_house = shapesClose(houseSquare, houseRoof, 95);
+        const windowClose_house = shapesClose(houseSquare, houseWindow, 20);
 
-        const isRoofCorrectAngle = checkRotationAngle(houseRoof, 0);
-        const ishouseSquareCorrectAngle = checkSquareRotationAngle(houseSquare, 0);
-        const isWindowCorrectAngle = checkSquareRotationAngle(houseWindow, 0);
-        const istreeBottomCorrectAngle = checkRotationAngle(treeBottom, 0);
-        const istreeMiddleCorrectAngle = checkRotationAngle(treeMiddle, 0);
-        const istreeTopCorrectAngle = checkRotationAngle(treeTop, 0);
-        const istreeTrunkCorrectAngle = checkRotationAngle(treeTrunk, 0);
+        const topClose_middle = shapesClose(treeTop, treeMiddle, 50);
+        const middleClose_bottom = shapesClose(treeMiddle, treeBottom, 100);
+        const bottomClose_trunk = shapesClose(treeBottom, treeTrunk, 80);
 
-        const topCloseToMiddle = areShapesClose(treeTop, treeMiddle, 50);
-        const middleCloseToBottom = areShapesClose(treeMiddle, treeBottom, 100);
-        const bottomCloseToTrunk = areShapesClose(treeBottom, treeTrunk, 80);
+        const roofCorrect = checkRotationAngle(houseRoof, 0);
+        const houseSquareCorrect = checkSquareRotationAngle(houseSquare, 0);
+        const windowCorrect = checkSquareRotationAngle(houseWindow, 0);
+        const treeBottomCorrect = checkRotationAngle(treeBottom, 0);
+        const treeMiddleCorrect = checkRotationAngle(treeMiddle, 0);
+        const treeTopCorrect = checkRotationAngle(treeTop, 0);
+        const treeTrunkCorrect = checkRotationAngle(treeTrunk, 0);
 
-        if (roofCloseToHouse && windowCloseToHouse && isRoofCorrectAngle && ishouseSquareCorrectAngle &&
-            isWindowCorrectAngle && istreeBottomCorrectAngle && istreeMiddleCorrectAngle &&
-            istreeTopCorrectAngle && istreeTrunkCorrectAngle &&
-            topCloseToMiddle && middleCloseToBottom && bottomCloseToTrunk) {
+
+        if (roofClose_house && windowClose_house && roofCorrect && houseSquareCorrect &&
+            windowCorrect && treeBottomCorrect && treeMiddleCorrect &&
+            treeTopCorrect && treeTrunkCorrect &&
+            topClose_middle && middleClose_bottom && bottomClose_trunk) {
             successMessage.style.display = 'block';
         } else {
             successMessage.style.display = 'none';
@@ -190,7 +191,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.removeEventListener('mousemove', drag);
         document.removeEventListener('mouseup', stopDrag);
 
-        checkIfShapesAreAssembled();
+        checkShapesAssem();
         draggedShape = null;
     }
 

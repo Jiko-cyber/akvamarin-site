@@ -25,7 +25,7 @@ const phrases = {
 const createPhrasesApp = () => {
     const init = () => {
         if (createBtn && recolorBtn) {
-            createBtn.addEventListener('click', handleCreateClick);
+            createBtn.addEventListener('click', createClick);
             recolorBtn.addEventListener('click', toggleBoldMode);
         }
     };
@@ -34,14 +34,14 @@ const createPhrasesApp = () => {
     let clickCount = 0;
     let boldMode = false;
 
-    const isFinished = () => usedPhrases.size === phrases.latin.length;
+    const finished = () => usedPhrases.size === phrases.latin.length;
 
     const createBtn = document.getElementById('createBtn');
     const recolorBtn = document.getElementById('recolorBtn');
     const tableBody = document.querySelector('#phrasesTable tbody');
 
     const getRandomPhrase = () => {
-        if (isFinished()) return null;
+        if (finished()) return null;
 
         let randomIndex;
         do {
@@ -101,8 +101,8 @@ const createPhrasesApp = () => {
         recolorBtn.classList.toggle('active', boldMode);
     };
 
-    const handleCreateClick = () => {
-        if (isFinished()) {
+    const createClick = () => {
+        if (finished()) {
             alert("Фразы закончились");
             return;
         }
