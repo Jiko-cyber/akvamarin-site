@@ -172,14 +172,12 @@ function makeDraggable(el, speed) {
         ox = e.clientX - el.getBoundingClientRect().left;
         oy = e.clientY - el.getBoundingClientRect().top;
 
-        // Убираем гирю со стола
         if (el.onTable) {
             tableItems = tableItems.filter(w => w.id !== el.dataset.id);
             el.onTable = false;
             el.classList.remove('on-table');
         }
 
-        // Убираем гирю из чаши
         if (el.inBowl) {
             if (el.bowl === 'left') {
                 leftWeight -= +el.dataset.value;
@@ -215,7 +213,6 @@ function makeDraggable(el, speed) {
         const table = document.getElementById('table');
         let placed = false;
 
-        // Проверка попадания в левую чашу
         if (isColliding(elRect, leftScale.getBoundingClientRect())) {
             if (leftWeights.length >= MAX_WEIGHTS_PER_BOWL) {
                 alert(`В левой чаше уже максимальное количество гирь (${MAX_WEIGHTS_PER_BOWL})!`);
@@ -230,7 +227,6 @@ function makeDraggable(el, speed) {
                 placed = true;
             }
         }
-        // Проверка попадания в правую чашу
         else if (isColliding(elRect, rightScale.getBoundingClientRect())) {
             if (rightWeights.length >= MAX_WEIGHTS_PER_BOWL) {
                 alert(`В правой чаше уже максимальное количество гирь (${MAX_WEIGHTS_PER_BOWL})!`);
@@ -245,7 +241,6 @@ function makeDraggable(el, speed) {
                 placed = true;
             }
         }
-        // Проверка попадания на стол
         else if (isColliding(elRect, table.getBoundingClientRect())) {
             if (tableItems.length >= TABLE_LIMIT) {
                 alert(`На столе максимальное количество гирь - (${TABLE_LIMIT})!`);
@@ -287,7 +282,6 @@ function layoutTable() {
     const t = table.getBoundingClientRect();
     const g = game.getBoundingClientRect();
 
-    // Все гири в одну строку
     tableItems.forEach((weight, i) => {
         const el = weight.element;
         const startX = t.left - g.left + 20;
@@ -321,13 +315,11 @@ function checkWin() {
         document.getElementById('success').style.display = 'block';
         const sublevel = sublevels[currentSublevel - 1];
 
-        // ТОЛЬКО БАЛЛЫ ЗА УРОВЕНЬ
         const totalPoints = sublevel.points;
 
         gameScore += totalPoints;
         updateTotalScore(totalPoints);
 
-        // ОБНОВЛЯЕМ ОТОБРАЖЕНИЕ
         document.getElementById('currentGameScore').textContent = gameScore;
 
         setTimeout(() => startNextSublevel(), 3000);
@@ -356,20 +348,15 @@ function startGameTimer(sublevel) {
                 spawnTimers.forEach(t => clearInterval(t));
                 spawnTimers = [];
 
-                // ШТРАФ ЗА ВРЕМЯ -10 баллов
                 const penalty = 10;
 
-                // ВАЖНО: сначала обновляем gameScore, но НЕ обнуляем отрицательные значения
                 gameScore -= penalty;
 
-                // Обновляем общий счет (может уйти в минус в localStorage)
                 updateTotalScore(-penalty);
 
-                // ТОЛЬКО для отображения не показываем отрицательные значения
                 const displayScore = Math.max(gameScore, 0);
                 document.getElementById('currentGameScore').textContent = displayScore;
 
-                // ПЕРЕХОД НА СЛЕДУЮЩИЙ УРОВЕНЬ
                 setTimeout(() => {
                     startNextSublevel();
                 }, 2000);
@@ -415,10 +402,8 @@ function getTotalScore() {
 function updateTotalScore(points) {
     let total = getTotalScore();
     total += points;
-    // НЕ обнуляем здесь, пусть в localStorage будет реальное значение
     localStorage.setItem('playerScore', total);
 
-    // Для отображения показываем не меньше 0
     const displayTotal = Math.max(total, 0);
     document.getElementById('totalScore').textContent = displayTotal;
 }

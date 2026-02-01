@@ -249,16 +249,5 @@ input {
 .stat-value {
     font-size: 2rem;
     font-weight: bold;
-    color: #1d3eac;
+    color: #ac1dac;
 }
-
-
-/*
-.instructions {
-    font-size: 20px;
-    color: #40647c;
-    margin-bottom: 20px;
-    padding: 15px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
-}*/

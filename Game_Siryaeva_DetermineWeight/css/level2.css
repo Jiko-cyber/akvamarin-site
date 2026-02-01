@@ -1,7 +1,6 @@
   .equation-container {
-      margin: 5px 0;
       padding: 15px;
-      border-radius: 10px;
+      border-radius: 100px;
       border: 2px solid #3498db;
   }
 
@@ -36,23 +35,10 @@
 
   /* Числа внутри фигур */
   .shape-number {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 1.4rem;
-      font-weight: bold;
       color: white;
-      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+      font-size: 20px;
   }
 
-  .shape.small .shape-number {
-      font-size: 1.2rem;
-  }
-
-  .shape.large .shape-number {
-      font-size: 1.6rem;
-  }
 
   .triangle {
       clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
@@ -67,10 +53,11 @@
   }
 
 
-  .equals {
-      font-size: 2.5rem;
+  .equals,
+  .operator {
+      font-size: 35px;
       color: #3498db;
-      margin: 0 15px;
+      margin: 0 5px;
   }
 
   .answer-input {
@@ -87,21 +74,8 @@
   .answer-input:focus {
       outline: none;
       border-color: #f1c40f;
-      box-shadow: 0 0 10px rgba(241, 196, 15, 0.5);
   }
 
-  /* Шкала весов */
-  .weight-scale {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 5px;
-      margin: 10px 0;
-      padding: 10px;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 10px;
-      flex-wrap: wrap;
-  }
 
   .weight-item {
       display: flex;
@@ -116,12 +90,7 @@
       margin: 0 3px;
   }
 
-  .weight-number {
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: white;
-      margin-top: 2px;
-  }
+
 
   .scale-label {
       font-size: 1.1rem;

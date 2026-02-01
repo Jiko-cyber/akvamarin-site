@@ -1,4 +1,4 @@
-// Все фигуры с их значениями
+
 const shapes = [
     { name: 'Маленький треугольник', value: 1, type: 'triangle', size: 'small' },
     { name: 'Маленький круг', value: 2, type: 'circle', size: 'small' },
@@ -8,7 +8,6 @@ const shapes = [
     { name: 'Большой квадрат', value: 6, type: 'square', size: 'large' }
 ];
 
-// Фигуры для первого уровня (все кроме 1 и 6)
 const level1Shapes = shapes.filter(s => s.value !== 1 && s.value !== 6);
 
 let currentLevel = 0;
@@ -19,7 +18,6 @@ let timeLeft = 0;
 let score = 0;
 let gameOver = false;
 
-// Начать игру
 function startGame() {
     currentLevel = 0;
     score = 0;
@@ -27,7 +25,6 @@ function startGame() {
     nextLevel();
 }
 
-// Следующий уровень
 function nextLevel() {
     currentLevel++;
 
@@ -36,28 +33,22 @@ function nextLevel() {
         return;
     }
 
-    // Выбираем фигуры
     const availableShapes = currentLevel === 1 ? level1Shapes : shapes;
     currentShapes = getRandomShapes(availableShapes, currentLevel);
 
-    // Вычисляем правильный ответ
     correctAnswer = currentShapes.reduce((sum, shape) => sum + shape.value, 0);
 
-    // Таймер
     timeLeft = [35, 30, 25, 20][currentLevel - 1];
 
-    // Показать игру
     showGame();
     startTimer();
 }
 
-// Получить случайные фигуры
 function getRandomShapes(availableShapes, count) {
     const shuffled = [...availableShapes].sort(() => Math.random() - 0.5);
     return shuffled.slice(0, count);
 }
 
-// Показать игру
 function showGame() {
     const container = document.getElementById('gameContainer');
 
@@ -78,11 +69,11 @@ function showGame() {
             </div>
         </div>
         
-        <div style="text-align: center; color: #3498db; margin: 5px 0;">
+        <div style="text-align: center; color: #3498db;    margin: 0px 0px 15px 0px;">
             Нажмите Enter для ответа
         </div>
         
-        <!-- Шкала весов -->
+        
         <div class="weight-scale">
             <div class="scale-label">Значения фигур по возрастанию:</div>
             <div style="display: flex; align-items: center; gap: 3px; flex-wrap: wrap; justify-content: center;">
@@ -105,7 +96,6 @@ function showGame() {
     `;
 }
 
-// Отрисовать фигуры
 function renderShapes(shapesArray) {
     return shapesArray.map((shape, i) => `
         <div class="shape ${shape.size} ${shape.type}"></div>
@@ -113,7 +103,6 @@ function renderShapes(shapesArray) {
     `).join('');
 }
 
-// Отрисовать шкалу весов с числами внутри крайних фигур
 function renderWeightScale() {
     const sorted = [...shapes].sort((a, b) => a.value - b.value);
 
@@ -130,7 +119,6 @@ function renderWeightScale() {
             </div>
         `;
 
-        // Добавляем знак < между фигурами (кроме последней)
         if (i < sorted.length - 1) {
             html += `<div class="weight-sign">&lt;</div>`;
         }
@@ -139,14 +127,12 @@ function renderWeightScale() {
     return html;
 }
 
-// Обработка нажатия Enter
 function handleEnter(event) {
     if (event.key === 'Enter') {
         checkAnswer();
     }
 }
 
-// Проверить ответ
 function checkAnswer() {
     if (gameOver) return;
 
@@ -178,7 +164,6 @@ function checkAnswer() {
     }, 2000);
 }
 
-// Запустить таймер
 function startTimer() {
     const timerEl = document.getElementById('timer');
     if (!timerEl) return;
@@ -205,7 +190,6 @@ function startTimer() {
     }, 1000);
 }
 
-// Завершить игру
 function endGame() {
     gameOver = true;
     clearInterval(timer);
@@ -235,7 +219,6 @@ function endGame() {
 
 }
 
-// Вспомогательные функции
 function getTotalScore() {
     return parseInt(localStorage.getItem('playerScore')) || 0;
 }
@@ -255,6 +238,5 @@ function showMessage(text, type) {
     setTimeout(() => note.style.display = 'none', 2000);
 }
 
-// Начать при загрузке
 document.addEventListener('DOMContentLoaded', startGame);
 window.handleEnter = handleEnter;
