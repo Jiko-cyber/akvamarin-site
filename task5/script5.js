@@ -97,13 +97,13 @@ document.addEventListener('DOMContentLoaded', function () {
         const middleClose_bottom = shapesClose(treeMiddle, treeBottom, 100);
         const bottomClose_trunk = shapesClose(treeBottom, treeTrunk, 80);
 
-        const roofCorrect = checkRotationAngle(houseRoof, 0);
-        const houseSquareCorrect = checkSquareRotationAngle(houseSquare, 0);
-        const windowCorrect = checkSquareRotationAngle(houseWindow, 0);
-        const treeBottomCorrect = checkRotationAngle(treeBottom, 0);
-        const treeMiddleCorrect = checkRotationAngle(treeMiddle, 0);
-        const treeTopCorrect = checkRotationAngle(treeTop, 0);
-        const treeTrunkCorrect = checkRotationAngle(treeTrunk, 0);
+        const roofCorrect = checkRotationAngle(houseRoof);
+        const houseSquareCorrect = checkSquareRotationAngle(houseSquare);
+        const windowCorrect = checkSquareRotationAngle(houseWindow);
+        const treeBottomCorrect = checkRotationAngle(treeBottom);
+        const treeMiddleCorrect = checkRotationAngle(treeMiddle);
+        const treeTopCorrect = checkRotationAngle(treeTop);
+        const treeTrunkCorrect = checkRotationAngle(treeTrunk);
 
 
         if (roofClose_house && windowClose_house && roofCorrect && houseSquareCorrect &&
@@ -116,13 +116,13 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    function checkRotationAngle(shape, targetAngle, tolerance = 5) {
+    function checkRotationAngle(shape, tolerance = 5) {
         if (!shape) return false;
 
         let currentRotation = parseInt(shape.dataset.rotation) || 0;
         currentRotation = ((currentRotation % 360) + 360) % 360;
 
-        let diff = Math.abs(currentRotation - targetAngle);
+        let diff = Math.abs(currentRotation - 0);
         diff = Math.min(diff, 360 - diff);
 
         return diff <= tolerance;

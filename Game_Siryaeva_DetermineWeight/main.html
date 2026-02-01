@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="main-title">Главное меню</h1>
+
+        <div class="player-info-container">
+            <div class="player-info-text">
+                Привет, <span id="currentPlayer"></span>!
+                Ваш счет: <span id="playerScoreDisplay">0</span> баллов
+            </div>
+            <button id="addPointsBtn" class="add-points-btn">
+                +100 очков
+            </button>
+        </div>
+
+        <div class="levels-container">
+            <div class="level-container">
+                <a href="level1.html" class="btn btn-level">
+                    Уровень 1: Сравнение животных
+                </a>
+            </div>
+
+            <div class="level-container">
+                <a href="level2.html" id="level2Btn" class="btn btn-level">
+                    Уровень 2: Уравнения с фигурами
+                    <span class="lock-icon">🔒</span>
+                </a>
+                <div id="level2Requirement" class="lock-requirement"></div>
+            </div>
+
+            <div class="level-container">
+                <a href="level3.html" id="level3Btn" class="btn btn-level">
+                    Уровень 3: Баланс весов
+                    <span class="lock-icon">🔒</span>
+                </a>
+                <div id="level3Requirement" class="lock-requirement"></div>
+            </div>
+
+            <a href="rating.html" class="btn btn-rating">Рейтинг игроков</a>
+
+            <button id="regenerateGame" class="btn back-btn">
+                Вернуться к авторизации
+            </button>
+        </div>
+    </div>
+
+    <div id="notification" class="notification"></div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

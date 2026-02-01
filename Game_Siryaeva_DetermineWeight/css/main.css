@@ -1,0 +1,83 @@
+/* Стили для главной страницы */
+
+.level-locked {
+    opacity: 0.6;
+    position: relative;
+    pointer-events: none;
+    cursor: not-allowed;
+    background: #95a5a6 !important;
+}
+
+.level-locked:hover {
+    background: #95a5a6 !important;
+    transform: none !important;
+}
+
+.lock-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+}
+
+.lock-requirement {
+    font-size: 0.9rem;
+    margin-top: 5px;
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.level-container {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.player-info-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+
+.player-info-text {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.add-points-btn {
+    background: #2ecc71;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.add-points-btn:hover {
+    background: #27ae60;
+    transform: translateY(-2px);
+}
+
+.add-points-btn:active {
+    transform: translateY(0);
+}
+
+.main-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2c3e50;
+}
+
+/* Стили для доступных уровней */
+.lock-requirement.unlocked {
+    color: #2ecc71;
+}
+
+.lock-icon {
+    display: inline-block;
+}

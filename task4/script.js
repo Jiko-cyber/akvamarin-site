@@ -50,6 +50,7 @@ const createPhrasesApp = () => {
 
         usedPhrases.add(randomIndex);
         clickCount++;
+        console.log(usedPhrases);
 
         return {
             latin: phrases.latin[randomIndex],

@@ -1,0 +1,138 @@
+  .equation-container {
+      margin: 5px 0;
+      padding: 15px;
+      border-radius: 10px;
+      border: 2px solid #3498db;
+  }
+
+  .equation {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      font-size: 2rem;
+      min-height: 80px;
+      flex-wrap: wrap;
+  }
+
+  .shape {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+  }
+
+  .shape.small {
+      width: 60px;
+      height: 60px;
+      background: #4d65bb !important;
+  }
+
+  .shape.large {
+      width: 75px;
+      height: 75px;
+      background: #1183b3 !important;
+  }
+
+  /* Числа внутри фигур */
+  .shape-number {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: white;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+  }
+
+  .shape.small .shape-number {
+      font-size: 1.2rem;
+  }
+
+  .shape.large .shape-number {
+      font-size: 1.6rem;
+  }
+
+  .triangle {
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  }
+
+  .square {
+      clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+
+  .circle {
+      border-radius: 50%;
+  }
+
+  .operator {
+      font-size: 2.5rem;
+      color: #3498db;
+      margin: 0 5px;
+  }
+
+  .equals {
+      font-size: 2.5rem;
+      color: #3498db;
+      margin: 0 15px;
+  }
+
+  .answer-input {
+      width: 100px;
+      height: 70px;
+      font-size: 2.5rem;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.1);
+      border: 3px solid #3498db;
+      border-radius: 10px;
+      color: white;
+  }
+
+  .answer-input:focus {
+      outline: none;
+      border-color: #f1c40f;
+      box-shadow: 0 0 10px rgba(241, 196, 15, 0.5);
+  }
+
+  /* Шкала весов */
+  .weight-scale {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      margin: 10px 0;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      flex-wrap: wrap;
+  }
+
+  .weight-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+  }
+
+  .weight-sign {
+      font-size: 1.5rem;
+      color: #3498db;
+      margin: 0 3px;
+  }
+
+  .weight-number {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: white;
+      margin-top: 2px;
+  }
+
+  .scale-label {
+      font-size: 1.1rem;
+      color: #3498db;
+      font-weight: bold;
+      margin-bottom: 8px;
+      text-align: center;
+      width: 100%;
+  }

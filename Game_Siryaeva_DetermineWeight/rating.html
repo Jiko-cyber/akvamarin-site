@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рейтинг игроков</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/rating.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="rating-title">Рейтинг игроков</h1>
+        <a href="main.html" class="btn btn-back">← Назад к уровням</a>
+
+        <div class="player-info">
+            Ваш текущий счет: <span id="yourScore">0</span> баллов
+        </div>
+
+        <div class="rating-table">
+            <div class="rating-row header">
+                <div class="rating-name">Имя игрока</div>
+                <div class="rating-score">Очки</div>
+            </div>
+            <div id="ratingList">
+            </div>
+        </div>
+
+        <div id="emptyRating" class="empty-rating">
+            Пока никого нет в рейтинге. Будьте первым!
+        </div>
+
+        <button id="refreshRating" class="btn refresh-btn">Обновить рейтинг</button>
+    </div>
+
+    <script src="js/rating.js"></script>
+</body>
+
+</html>
