@@ -1,7 +1,7 @@
 const sublevels = [
     {
         id: 1,
-        name: "Простой баланс",
+        name: "Легкий баланс",
         streams: 1,
         min: 1,
         max: 9,
@@ -51,11 +51,6 @@ let rightWeights = [];
 
 const TABLE_LIMIT = 5;
 const MAX_WEIGHTS_PER_BOWL = 6;
-
-document.addEventListener('DOMContentLoaded', function () {
-    gameScore = 0;
-    startNextSublevel();
-});
 
 function startNextSublevel() {
     currentSublevel++;
@@ -382,7 +377,6 @@ function finishGame() {
             </div>
         </div>
         <div style="text-align: center;">
-            <a href="main.html" class="btn btn-back">Вернуться к уровням</a><br>
             <button onclick="location.reload()" class="btn" style="margin-top: 10px; padding: 10px 20px;">
                 Играть еще раз
             </button>
@@ -407,3 +401,8 @@ function updateTotalScore(points) {
     const displayTotal = Math.max(total, 0);
     document.getElementById('totalScore').textContent = displayTotal;
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    gameScore = 0;
+    startNextSublevel();
+});

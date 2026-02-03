@@ -57,9 +57,9 @@ h2 {
 input {
     width: 100%;
     padding: 15px;
-    font-size: 1.2rem;
+    font-size: 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     background: rgba(255, 255, 255, 0.9);
 }
 
@@ -145,14 +145,9 @@ input {
     text-align: right;
 }
 
-/*
-.current-user {
-    background: rgba(13, 127, 203, 0.3);
-}
-*/
 
 
-/* Стили для игры */
+/*----*/
 .game-container {
     text-align: center;
     max-width: 600px;
@@ -247,7 +242,7 @@ input {
 }
 
 .stat-value {
-    font-size: 2rem;
+    font-size: 30px;
     font-weight: bold;
-    color: #ac1dac;
+    color: #431ab6;
 }

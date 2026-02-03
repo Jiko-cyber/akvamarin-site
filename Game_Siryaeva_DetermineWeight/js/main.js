@@ -59,10 +59,10 @@ function checkLevelsUnlock() {
     const level2Req = document.getElementById('level2Requirement');
     const level3Req = document.getElementById('level3Requirement');
 
-    //уровень 2: требуется 30 очков
+    //уровень2: требуется 30 очков
     updateLevelAccess(level2Btn, level2Req, totalScore, 30);
 
-    //уровень 3: требуется 60 очков
+    //уровень3: требуется 60 очков
     updateLevelAccess(level3Btn, level3Req, totalScore, 60);
 }
 

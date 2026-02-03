@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const playerName = document.getElementById('player-name').value.trim();
         const previousPlayerName = localStorage.getItem('playerName');
 
+        //проверка на пустой ввод
         if (!playerName) {
             showNotification('Введите имя');
             return;

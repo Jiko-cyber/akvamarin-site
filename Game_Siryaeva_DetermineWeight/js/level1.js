@@ -1,3 +1,4 @@
+//массив животных
 const animals = [
     { name: "Кошка", weight: 5 },
     { name: "Лев", weight: 190 },
@@ -10,8 +11,9 @@ const animals = [
     { name: "Заяц", weight: 3 },
     { name: "Волк", weight: 50 }
 ];
-
+//время для уровней
 const levelTimers = [30, 20, 15, 10];
+//вопросы
 const questionTypes = [
     {
         text: "Какое животное тяжелее?",
@@ -35,10 +37,6 @@ let selectedAnimal = null;
 let gameCompleted = false;
 let answerSubmitted = false;
 
-document.addEventListener('DOMContentLoaded', function () {
-    gameScore = 0;
-    startWeightGame();
-});
 
 function startWeightGame() {
     currentSublevel = 0;
@@ -47,6 +45,7 @@ function startWeightGame() {
     startNextSublevel();
 }
 
+//запуск следующего подуровня
 function startNextSublevel() {
     currentSublevel++;
     answerSubmitted = false;
@@ -63,7 +62,7 @@ function startNextSublevel() {
     renderGame();
     startTimer();
 }
-
+//отрисовка игрового процесса
 function renderGame() {
     const gameContainer = document.getElementById('gameContainer');
     gameContainer.innerHTML = `
@@ -99,11 +98,12 @@ function renderGame() {
         </div>
     `;
 }
-
+//получение общего счета
 function getTotalScore() {
     return parseInt(localStorage.getItem('playerScore')) || 0;
 }
 
+//обработчик наведения мыши 
 function handleAnimalHover(index) {
     if (answerSubmitted || gameCompleted || selectedAnimal !== null) return;
 
@@ -122,6 +122,7 @@ function handleAnimalHover(index) {
     }, 1000);
 }
 
+//функция отправки ответа
 function submitAnswer() {
     if (answerSubmitted || gameCompleted || selectedAnimal === null) return;
 
@@ -146,13 +147,13 @@ function submitAnswer() {
 
     setTimeout(() => startNextSublevel(), 2000);
 }
-
+//обновление общего счета
 function updateTotalScore(points) {
     let totalScore = getTotalScore();
     totalScore += points;
     localStorage.setItem('playerScore', totalScore);
 }
-
+//запуск таймера
 function startTimer() {
     const timerElement = document.getElementById('timer');
     if (!timerElement) return;
@@ -186,7 +187,7 @@ function startTimer() {
         }
     }, 1000);
 }
-
+//функция завершения игры
 function finishGame() {
     gameCompleted = true;
     clearInterval(timer);
@@ -217,5 +218,8 @@ function finishGame() {
     setTimeout(() => notification.style.display = 'none', 3000);
 }
 
-// Делаем функцию доступной глобально для обработки событий в HTML
 window.handleAnimalHover = handleAnimalHover;
+document.addEventListener('DOMContentLoaded', function () {
+    gameScore = 0;
+    startWeightGame();
+});
