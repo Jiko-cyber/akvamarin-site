@@ -17,7 +17,7 @@ function setupEventListeners() {
 
             clearPlayerData();
 
-            window.location.href = 'index.html';
+            window.location.href = 'auth.html';
         }
     });
 

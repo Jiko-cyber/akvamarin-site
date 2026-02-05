@@ -86,6 +86,8 @@ input {
     margin-top: 10px;
     text-decoration: none;
     text-align: center;
+    box-shadow: 0 5px 8px rgba(2, 16, 107, 0.5);
+
 }
 
 .btn:hover {
@@ -103,12 +105,12 @@ input {
 }
 
 .btn-rating {
-    background: #e9ab37;
-    margin-top: 30px;
+    background: #0b69bc;
+
 }
 
 .btn-rating:hover {
-    background: #c58d25;
+    background: #053f72;
 }
 
 

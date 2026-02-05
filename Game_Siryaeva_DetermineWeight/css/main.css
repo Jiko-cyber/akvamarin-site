@@ -21,6 +21,19 @@
     padding: 10px 15px;
 }
 
+.bottom-marking {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+
+}
+
+.bottom-marking .btn {
+    width: 300px;
+
+}
+
 .player-info-text {
     font-size: 20px;
     color: #0a0808;
