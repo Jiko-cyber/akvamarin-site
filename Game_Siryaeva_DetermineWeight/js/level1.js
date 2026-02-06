@@ -78,9 +78,7 @@ function renderGame() {
             `).join('')}
         </div>
         
-        <div class="score-info">
-            Правильный: +10 | Неправильный: -5 | Штраф по времени: -5
-        </div>
+     
         
         <div class="game-stats">
             <div class="stat-item">
@@ -138,7 +136,7 @@ function submitAnswer() {
 
     const statusElement = document.getElementById('selectionStatus');
     if (statusElement) {
-        statusElement.textContent = isCorrect ? 'Правильный ответ!' : 'Неправильный ответ!';
+        statusElement.textContent = isCorrect ? 'Правильно! +10 баллов' : 'Неправильно! -5 баллов';
         statusElement.style.color = isCorrect ? '#2ecc71' : '#e74c3c';
     }
 
