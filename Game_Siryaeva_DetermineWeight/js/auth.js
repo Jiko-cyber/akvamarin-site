@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         //проверка на пустой ввод
         if (!playerName) {
-            showNotification('Введите имя');
+            showNotification('Введите имя, поле не может быть пустым!');
             return;
         }
 

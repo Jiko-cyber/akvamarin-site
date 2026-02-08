@@ -36,7 +36,10 @@
 
 .player-info-text {
     font-size: 20px;
-    color: #0a0808;
+    color: #063c72;
+    font-weight: 600;
+    text-shadow: 1px 1px 3px rgb(152, 186, 234);
+    letter-spacing: 1px;
 }
 
 .add-points-btn {

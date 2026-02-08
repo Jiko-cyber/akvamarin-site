@@ -8,8 +8,8 @@ const sublevels = [
         step: 1,
         speed: 1.4,
         interval: 2000,
-        timeLimit: 40,
-        points: 25
+        timeLimit: 20,
+        points: 15
     },
     {
         id: 2,
@@ -20,8 +20,8 @@ const sublevels = [
         step: 10,
         speed: 1.3,
         interval: 1800,
-        timeLimit: 50,
-        points: 35
+        timeLimit: 30,
+        points: 25
     },
     {
         id: 3,
@@ -32,8 +32,8 @@ const sublevels = [
         step: 100,
         speed: 1.2,
         interval: 1600,
-        timeLimit: 60,
-        points: 50
+        timeLimit: 40,
+        points: 35
     }
 ];
 
@@ -317,6 +317,10 @@ function checkWin() {
 
         document.getElementById('currentGameScore').textContent = gameScore;
 
+        // ОПОВЕЩЕНИЕ КАК ВО ВТОРОМ УРОВНЕ
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = `<span style="color: #2ecc71">Правильно! +${totalPoints} баллов</span>`;
+
         setTimeout(() => startNextSublevel(), 3000);
     }
 }
@@ -343,7 +347,7 @@ function startGameTimer(sublevel) {
                 spawnTimers.forEach(t => clearInterval(t));
                 spawnTimers = [];
 
-                const penalty = 10;
+                const penalty = 15;
 
                 gameScore -= penalty;
 
@@ -351,6 +355,10 @@ function startGameTimer(sublevel) {
 
                 const displayScore = Math.max(gameScore, 0);
                 document.getElementById('currentGameScore').textContent = displayScore;
+
+                // ОПОВЕЩЕНИЕ КАК ВО ВТОРОМ УРОВНЕ
+                const resultDiv = document.getElementById('result');
+                resultDiv.innerHTML = `<span style="color: #e74c3c">Время вышло! -${penalty} баллов</span>`;
 
                 setTimeout(() => {
                     startNextSublevel();

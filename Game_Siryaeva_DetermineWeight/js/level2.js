@@ -147,16 +147,16 @@ function checkAnswer() {
     clearInterval(timer);
 
     const isCorrect = answer === correctAnswer;
-    const points = isCorrect ? 15 : -5;
+    const points = isCorrect ? 15 : -8;
     score += points;
 
     updateTotalScore(points);
 
     const resultDiv = document.getElementById('result');
     if (isCorrect) {
-        resultDiv.innerHTML = `<span style="color: #2ecc71">Правильно! +15 баллов</span>`;
+        resultDiv.innerHTML = `<span style="color: #2ecc71">Правильно! +20 баллов</span>`;
     } else {
-        resultDiv.innerHTML = `<span style="color: #e74c3c">Неправильно! -5 баллов</span>`;
+        resultDiv.innerHTML = `<span style="color: #e74c3c">Неправильно! -10 баллов</span>`;
     }
 
     setTimeout(() => {
